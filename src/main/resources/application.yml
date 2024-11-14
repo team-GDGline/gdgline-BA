@@ -16,11 +16,6 @@ spring:
       max-file-size: 15MB
       max-request-size: 15MB
 
-logging:
-  level:
-    org.hibernate.SQL: DEBUG
-    org.hibernate.type: TRACE
-    org.springframework.security: TRACE
 server:
   servlet:
     encoding:
