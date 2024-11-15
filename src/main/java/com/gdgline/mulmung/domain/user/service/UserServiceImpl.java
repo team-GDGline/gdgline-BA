@@ -33,8 +33,9 @@ public class UserServiceImpl implements UserService{
         } else if (!passwordEncoder.matches(loginRequestDto.getPassword(), userByEmail.get().getPassword())) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         } else {
-            LoginResponseDto loginResponseDto = LoginResponseDto.builder().
-                    accessToken(jwtTokenProvider.createAccessToken(loginRequestDto.getEmail()))
+            LoginResponseDto loginResponseDto = LoginResponseDto.builder()
+                    .accessToken(jwtTokenProvider.createAccessToken(loginRequestDto.getEmail()))
+                    .nickName(userByEmail.get().getNickname())
                     .build();
             return new ResponseEntity<>(loginResponseDto, HttpStatus.OK);
         }
